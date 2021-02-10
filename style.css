@@ -1,0 +1,107 @@
+p {
+    text-align: center;
+}
+
+#welcome {
+    margin-top: 200px;
+    font-size: 40px;
+}
+
+#rules {
+    margin-top: 120px;
+    font-size: 22px;
+}
+
+#start_game {
+    height:60px;
+    width: 160px;
+    font-size: 30px;
+    margin: auto;
+    margin-top: 150px;
+    text-align: center;
+    line-height: 60px;
+    border: 1px solid black;
+}
+
+#start_game:hover {
+    cursor: pointer;
+}
+
+#alpha {
+    height: 280px;
+    width: 500px; 
+    /* border: 1px solid black; */
+    margin: auto;
+    margin-top: 100px;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; */
+
+}
+
+.omega {
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+    text-align: center;
+    margin: 10px 10px 10px 10px;
+    /* margin-top: 10px; */
+    line-height: 40px;
+    font-size: 30px;
+    display: inline-block;
+}
+
+
+
+.current {
+    height: 40px;
+    width: 40px;
+    border-bottom: 1px solid black;
+    margin-top: 8px;
+    margin-right: 16px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 28px;
+    color: white;
+}
+
+.omega:hover, .replay {
+    cursor: pointer;
+}
+
+.temp:hover {
+    cursor: default;
+}
+
+#container{
+    display: flex;
+    margin: auto;
+    margin-top: 200px;
+    justify-content: center;
+    height: 60px;
+    width: 100%;
+    /* border: 1px solid black; */
+
+}
+
+#chances {
+    height: 30px;
+    width: 100%;
+    /* border: 1px solid black; */
+    font-size: 20px;
+    margin: auto;
+    margin-top: 0;
+    text-align: center;
+    line-height: 30px;
+}
+
+.replay {
+    height:50px;
+    width: 130px;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+    line-height: 50px;
+    border: 1px solid black;
+    font-size: 25px;
+}
