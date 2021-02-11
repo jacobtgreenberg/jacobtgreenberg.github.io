@@ -1,4 +1,3 @@
 # jacobtgreenberg.github.io
 
-
-https://jacobtgreenberg.github.io/snowman/index
+https://jacobtgreenberg.github.io/index
