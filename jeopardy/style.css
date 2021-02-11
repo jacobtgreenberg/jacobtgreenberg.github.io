@@ -67,6 +67,7 @@ li {
 }
 
 .container {
+    display: none;
     width: 915px;
     border: 2px solid black;
     border-right: 3px solid black;
@@ -95,6 +96,7 @@ li {
 }
 
 .score {
+    display: none;
     margin: auto;
     font-size: 50px;
     border: 5px solid black;
@@ -102,7 +104,7 @@ li {
 }
 
 
-.modal {
+.modal, #opening {
 	background-color: rgba(0,0,0,0.4);
 	position: fixed;
 	top: 0;
@@ -116,7 +118,15 @@ li {
     display: none;
 }
 
-.text_box {
+#opening {
+    display: block;
+}
+
+#opening:hover {
+    cursor: pointer;
+}
+
+.text_box, #opentext {
     background-color: blue;
     color: white;
     text-shadow: 2px 2px #000000;
@@ -129,6 +139,14 @@ li {
     border: 4px solid black;
     
 }
+
+#opentext {
+    font-size: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 
 .result {
     display: flex;
