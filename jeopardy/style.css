@@ -3,7 +3,8 @@
 }
 
 body {
-    background-color: #b8c6db;
+    /* background-color: #b8c6db; */
+    background-image: url("https://cesar.esa.int/upload/201902/costelacion.png");
 }
 
 ul {
