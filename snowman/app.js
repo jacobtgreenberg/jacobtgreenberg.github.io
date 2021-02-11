@@ -1,6 +1,5 @@
 
-    $(() => {
-
+$(() => {
 
         const wordBank = [
             ["f", "i", "s", "h"],
@@ -16,30 +15,10 @@
 
         let word = []
         const alphabet = ["a", "b", "c", "d", "e", "f", "g","h","i", "j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-        
-        
-        let strikes = 0;
-        let lettersCorrect = 0;
-        let $chosenWord;
-
-        $("#start_game").on('click', (e) => {
-            const $container = $('<div>').attr('id','container')
-            $('body').append($container)
-            const $alpha = $('<div>').attr('id','alpha')
-            $('body').append($alpha)
-            const $chances = $('<div>').attr('id','chances')
-            $('body').append($chances)
-            $('p').remove()
-            $(e.target).remove()
-            setAlphabet()
-            pickWord()
-            setWord()
-        })
-        
-        function removeWord(){
-            let wordToRemove = wordBank.indexOf($chosenWord)
-            wordBank.splice(wordToRemove, 1)
-        }
+        let strikes = 0
+        let lettersCorrect = 0
+        let $chosenWord
+        let playerCanClick = true
 
         function pickWord() {
             const $randomIndex = Math.floor(Math.random() * wordBank.length)
@@ -64,22 +43,33 @@
             }
         }
 
-        function checkWord(e){
-            const $chosen = $(e.target).text()
-            if(playerCanClick == false){
-                return
-            }
-            if(word.includes($chosen)){
-                $(e.target).remove();
-                letterCorrect(e)
-            }else{
-                $(e.target).remove();
-                strikes++;
-                letterIncorrect()
-            }   
+        function removeWord(){
+            let wordToRemove = wordBank.indexOf($chosenWord)
+            wordBank.splice(wordToRemove, 1)
         }
 
-        let playerCanClick = true;
+        function playAgain() {
+            const $div = $('<div>').addClass('replay')
+            $div.text('Play Again')
+            $('body').append($div)
+            for(child of $('#container').children()){
+                $(child).css('color','black')
+            }
+            $div.on('click' , (e) => {
+                playerCanClick = true
+                $('#alpha').empty()
+                $('#container').empty()
+                $(e.target).remove()
+                $('#chances').empty()
+                word = []
+                removeWord()
+                setAlphabet()
+                pickWord()
+                setWord()
+                lettersCorrect = 0
+                strikes = 0               
+            })
+        }
 
         function letterCorrect(e) {
             for(child of $('#container').children()){
@@ -102,7 +92,6 @@
             }else if(strikes == 6){
                 $('#chances').text("Ya lose.")
                 playerCanClick = false
-                //////
                 $('.omega').toggleClass('temp')
                 playAgain()
             }
@@ -111,33 +100,33 @@
             }
         }
 
-
-        function playAgain() {
-            const $div = $('<div>').addClass('replay')
-            $div.text('Play Again')
-            $('body').append($div)
-            for(child of $('#container').children()){
-                $(child).css('color','black')
+        function checkWord(e){
+            const $chosen = $(e.target).text()
+            if(playerCanClick == false){
+                return
             }
-            $div.on('click' , (e) => {
-                playerCanClick = true
-                $('#alpha').empty()
-                $('#container').empty()
+            if(word.includes($chosen)){
                 $(e.target).remove()
-                $('#chances').empty()
-                word = []
-                removeWord()
-                setAlphabet()
-                pickWord()
-                setWord()
-                lettersCorrect = 0;
-                strikes = 0;
-                
-            })
+                letterCorrect(e)
+            }else{
+                $(e.target).remove()
+                strikes++;
+                letterIncorrect()
+            }   
         }
-        
- 
-   
 
-        
-    })
+        $("#start_game").on('click', (e) => {
+            const $container = $('<div>').attr('id','container')
+            $('body').append($container)
+            const $alpha = $('<div>').attr('id','alpha')
+            $('body').append($alpha)
+            const $chances = $('<div>').attr('id','chances')
+            $('body').append($chances)
+            $('p').remove()
+            $(e.target).remove()
+            setAlphabet()
+            pickWord()
+            setWord()
+        })
+
+})

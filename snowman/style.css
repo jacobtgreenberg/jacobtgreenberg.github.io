@@ -30,13 +30,8 @@ p {
 #alpha {
     height: 280px;
     width: 500px; 
-    /* border: 1px solid black; */
     margin: auto;
     margin-top: 100px;
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around; */
-
 }
 
 .omega {
@@ -45,13 +40,10 @@ p {
     border: 1px solid black;
     text-align: center;
     margin: 10px 10px 10px 10px;
-    /* margin-top: 10px; */
     line-height: 40px;
     font-size: 30px;
     display: inline-block;
 }
-
-
 
 .current {
     height: 40px;
@@ -80,14 +72,11 @@ p {
     justify-content: center;
     height: 60px;
     width: 100%;
-    /* border: 1px solid black; */
-
 }
 
 #chances {
     height: 30px;
     width: 100%;
-    /* border: 1px solid black; */
     font-size: 20px;
     margin: auto;
     margin-top: 0;
