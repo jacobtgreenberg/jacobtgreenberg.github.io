@@ -1,0 +1,92 @@
+body {
+    background: black;
+}
+
+#container {
+    height: 410px;
+    width: 410px;
+    margin: auto;
+    margin-top: 160px;
+}
+
+#scontainer {
+    margin: auto;
+    margin-top: 30px;
+    width: 410px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.square {
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+}
+
+.square:hover {
+    cursor: pointer;
+}
+
+.score, #hi_score {
+    color: white;
+    font-size: 120px;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.redLit {
+    background-color: #fca19a
+}
+
+.blueLit {
+    background-color: #77f8fc;
+}
+
+.yellowLit {
+    background-color: #fffeb8;
+}
+
+.greenLit {
+    background-color: #c3ffb8;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.freestyle {
+    text-align: center;
+    padding-bottom: 60px;
+    color: black;
+    display: block;
+}
+
+.freestyle:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.fscore {
+    color: black;
+}
+
+.fscore:hover {
+    color: white;
+    cursor: pointer;
+}
