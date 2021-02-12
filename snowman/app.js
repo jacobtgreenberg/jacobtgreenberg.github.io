@@ -20,6 +20,8 @@ $(() => {
         let $chosenWord
         let playerCanClick = true
 
+
+        //Grabs a word at random from word list
         function pickWord() {
             const $randomIndex = Math.floor(Math.random() * wordBank.length)
             $chosenWord = wordBank[$randomIndex]         
@@ -28,6 +30,15 @@ $(() => {
              }
         }
 
+        //Creates blank tiles for each of the chosen word's letters
+        function setWord() {
+            for(letter of word){
+                const $div = $('<div>').text(letter).addClass('current')
+                $('#container').append($div)
+            }
+        }
+
+        //Populates board with letter buttons
         function setAlphabet() {
             for(letter of alphabet ){
                 const $div = $('<div>').text(letter).addClass('omega')
@@ -36,18 +47,15 @@ $(() => {
             }
         }
 
-        function setWord() {
-            for(letter of word){
-                const $div = $('<div>').text(letter).addClass('current')
-                $('#container').append($div)
-            }
-        }
 
+
+        //Removes chosen word from the original list so it can't be picked again
         function removeWord(){
             let wordToRemove = wordBank.indexOf($chosenWord)
             wordBank.splice(wordToRemove, 1)
         }
 
+        //Creates a button to enter reset state
         function playAgain() {
             const $div = $('<div>').addClass('replay')
             $div.text('Play Again')
@@ -71,6 +79,7 @@ $(() => {
             })
         }
 
+        //Function to populate blanks and check for win-state if player chooses correct letter
         function letterCorrect(e) {
             for(child of $('#container').children()){
                 if($(child).text() == $(e.target).text()){
@@ -86,6 +95,7 @@ $(() => {
             }
         }
 
+        //Function for incorrect letter choice, checks for lose-state
         function letterIncorrect() {
             if(strikes == 1){
                 $('#chances').text(strikes + " strike")
@@ -100,6 +110,7 @@ $(() => {
             }
         }
 
+        //Function to determine whether chosen letter is correct or incorrect
         function checkWord(e){
             const $chosen = $(e.target).text()
             if(playerCanClick == false){
@@ -115,6 +126,7 @@ $(() => {
             }   
         }
 
+        //Clears opening screen and begins the game
         $("#start_game").on('click', (e) => {
             const $container = $('<div>').attr('id','container')
             $('body').append($container)
