@@ -47,8 +47,6 @@ $(() => {
             }
         }
 
-
-
         //Removes chosen word from the original list so it can't be picked again
         function removeWord(){
             let wordToRemove = wordBank.indexOf($chosenWord)

@@ -1,7 +1,9 @@
 
 $(() => {
 
-    let score=0
+    let clickOut = false;
+    let clickCounter = 0;
+    let score=0;
     let categories = ["fish" , "music" , "miscellaneous", "science", "vacation spots"]
     let value = ["$100" , "$200", "$300", "$400", "$500"]
     let question = [
@@ -56,7 +58,8 @@ $(() => {
     
     
     
-    
+    //Function to close opening modal
+    //Also closes ending modal and starts reset state
     $('#opening').on('click', ()=> {
         if(clickCounter == 25){
             $('.container').empty();
@@ -70,6 +73,7 @@ $(() => {
         populateBoard()
     })
     
+    //Opens question and answer list for clicked square, disables clicked square
     function display(i,event,k) {
         if($(event.target).attr('class') == 'square stop'){
             return
@@ -91,8 +95,7 @@ $(() => {
     
     }
     
-    let clickOut = false
-    
+    //Checks player's choice and returns accordingly
     function checkAnswer(i,j,k) {
         let scoreValue = parseInt(value[i].replace('$',""))
         $('.text_box').toggleClass('result')
@@ -101,16 +104,15 @@ $(() => {
             $('.text_box').empty()
             $('.text_box').text("CORRECT!").css('font-size','70px')
             score += scoreValue
-            $('.score').text(score)
-            
+            $('.score').text(score)      
         }else{
             $('.text_box').text("I'M SORRY THE CORRECT ANSWER WAS " + correctAnswer(k, i).toUpperCase()).css('font-size','35px')
             score -= scoreValue
-            $('.score').text(score)
-            
+            $('.score').text(score)   
         }
     }
     
+    //Returns the correct answer to a question
     function correctAnswer(k, i) {
         for(object of answers[k][i]){
             if(object.value == true){
@@ -119,10 +121,10 @@ $(() => {
         }
     }
     
+    //Creates click event for opening modal
     $('.modal').on('click', closeModal)
     
-    let clickCounter = 0;
-
+    //Closes modal, if board is empty starts closing modal
     function closeModal() {
         if(clickOut == false){
             return
@@ -138,11 +140,13 @@ $(() => {
         clickOut = false
     }
     
+    //Function to open closing modal
     function endStage() {
         $('#opening').css('display','block')
         $('#opentext').text('Thank you for playing! Click to play again.')
     }
 
+    //Creates board
     function populateBoard() {
     for(let k = 0; k < categories.length; k++){
         const $column = $('<div>').addClass('column')
@@ -152,7 +156,6 @@ $(() => {
         $('.container').append($column)
         $column.append($title)
         $column.append($ul)
-        
         for(let i = 0; i < value.length; i++){
             const $square = $('<li>').text(value[i]).addClass('square')
             $square.on('click', () => display(i,event,k))
