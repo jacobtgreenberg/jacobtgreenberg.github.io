@@ -1,20 +1,136 @@
-div {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    width:100%;
-    
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&display=swap');
+
+body {
+    font-family: "Libre Franklin";
+    margin-left: 1em;
+}
+
+.header {
+    margin-bottom: 0;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+h3, h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.project {
+    width: 30%;
+    display: inline-block;
+    margin-right: 2em;
+    margin-bottom: 2em;
+    vertical-align: top;
+}
+
+.third {
+    margin-right: 0;
 }
 
 
-a {
-    display: block;
-    margin: 0 auto;
-    width: 20px;
-    padding: 10px;
-    font-size: 20px;
+
+.filler, .content {
+    display: inline-block;
+}
+
+.title {
+    font-size: 1.4em;
+    text-decoration: underline;
+}
+
+.description {
+    text-align: justify;
+}
+
+.thing {
+    color: lightblue;
+    height: 30%;
+    width: 30%;
+}
+
+.about-body {
+    font-size: 1.4em;
+    width: 90%;
+}
+
+.check {
+    font-size: 1.4em;
+}
+
+.live-site {
+    display: inline-block;
+}
+
+a, a:visited {
+    color: lightseagreen;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+span {
+    font-style: italic;
+}
+
+img {
+    width: 30px;
+    margin-right: 1em;
+  
+}
+
+img:hover {
+    cursor: pointer;
+}
+
+.images {
+   text-align: center;
+}
+
+.project-container {
+    margin-bottom: 150px;
+}
+
+.nav {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+}
+
+.nav img {
+    width: 30px;
+}
+
+@media only screen and (max-width: 900px) {
+    .project {
+        width: 45%;
+    }
+    .third {
+        margin-right: 2em;
+    }
+
+    .second {
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .project {
+        width: 95%;
+        display: block;
+    }
+
+    .about-body {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+   .nav {
+       display: none;
+   }
 }
